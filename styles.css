@@ -166,3 +166,9 @@ input::placeholder {
     color: lightslategrey;
     font-weight: lighter;
 }
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
