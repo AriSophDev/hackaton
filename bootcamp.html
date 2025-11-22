@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Potencial Solar y Eólico - Departamento del Magdalena</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #0a5275;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #063b52;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #0a5275;
+        }
+
+        footer {
+            background: #0a5275;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+    <script>
+        function openTab(evt, tabName) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(sec => sec.style.display = 'none');
+
+
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => link.classList.remove('active'));
+
+
+            document.getElementById(tabName).style.display = 'block';
+            evt.currentTarget.classList.add('active');
+        }
+
+
+        window.onload = () => {
+            document.querySelector('section').style.display = 'block';
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Potencial Solar y Eólico en el Magdalena</h1>
+        <p>Explorando las oportunidades energéticas sostenibles en el Caribe colombiano</p>
+    </header>
+
+
+    <nav>
+        <a href="#presentacion" onclick="openTab(event, 'presentacion')">Presentación</a>
+        <a href="#recursos" onclick="openTab(event, 'recursos')">Recursos Naturales</a>
+        <a href="#calculadora" onclick="openTab(event, 'calculadora')">Calculadora de ahorro</a>
+        <a href="#beneficios" onclick="openTab(event, 'beneficios')">Beneficios Sociales</a>
+    </nav>
+
+
+    <section id="presentacion" style="display:none;">
+        <h2>Presentación</h2>
+        <p>
+            El departamento del Magdalena, ubicado en la Región Caribe, se destaca por su abundante radiación solar y su
+            cercanía a corredores de viento del norte del país. Estas características lo convierten en un territorio
+            estratégico para impulsar proyectos de energía solar fotovoltaica y energía eólica, contribuyendo así a la
+            transición energética en Colombia.
+        </p>
+        <p>
+            Con una combinación de zonas urbanas, rurales y costeras, el Magdalena ofrece un entorno diverso para el
+            desarrollo de iniciativas energéticas limpias, fortaleciendo tanto la economía como la sostenibilidad
+            ambiental.
+        </p>
+    </section>
+
+
+    <section id="recursos" style="display:none;">
+        <h2>Recursos Naturales</h2>
+        <p>
+            El Magdalena recibe altos niveles de radiación solar durante todo el año, con promedios que superan los 5
+            kWh/m² diarios en muchas zonas. Esto permite la instalación eficiente de paneles solares, especialmente en
+            áreas rurales y centros urbanos con baja densidad de edificaciones.
+        </p>
+        <p>
+            Asimismo, los vientos provenientes del mar Caribe favorecen el potencial eólico, particularmente en los
+            municipios costeros como Ciénaga y Pueblo Viejo. Estas condiciones permiten estudiar y desarrollar proyectos
+            de aerogeneradores a pequeña y mediana escala.
+        </p>
+    </section>
+
+
+    <section id="beneficios" style="display:none;">
+        <h2>Beneficios Sociales</h2>
+        <p>
+            La implementación de energías renovables en el Magdalena trae múltiples beneficios sociales, entre ellos:
+        </p>
+        <ul>
+            <li>Reducción de costos energéticos para comunidades vulnerables.</li>
+            <li>Generación de empleo en sectores técnicos y de mantenimiento.</li>
+            <li>Disminución de la dependencia de combustibles fósiles.</li>
+            <li>Impulso al desarrollo rural mediante electrificación sostenible.</li>
+            <li>Mejor calidad del aire y reducción de impactos ambientales.</li>
+        </ul>
+    </section>
+
+    <section id="calculadora" style="display:none;">
+        <h2>Calculadora de ahorro</h2>
+
+        <p>Aquí podrás calcular cuánto está ahorrando tu departamento con nuestra solución:</p>
+
+        <!-- 📌 Contenedor donde se mostrará la calculadora -->
+        <div id="calculadora-container"></div>
+
+        <div class="calculator">
+            <h2>Calculadora de Ahorro Energético (COP) 💡</h2>
+            <p>Ajusta los valores al costo real en tu región.</p>
+            <form id="savingsForm">
+                <label for="currentConsumption">Consumo Mensual Actual (kWh):</label>
+                <input type="number" id="currentConsumption" value="500" min="0" required />
+
+                <label for="currentCostPerKwh">Costo Promedio Actual por kWh (COP):</label>
+                <input type="number" id="currentCostPerKwh" value="650" min="0" step="1" required />
+
+                <label for="efficiencyReduction">Reducción por Eficiencia (%):</label>
+                <input type="number" id="efficiencyReduction" value="10" min="0" max="100" required />
+
+                <label for="renewableCostPerKwh">Costo de Tarifa Renovable por kWh (COP):</label>
+                <input type="number" id="renewableCostPerKwh" value="250" min="0" step="1" required />
+
+                <button type="submit">Calcular Ahorro</button>
+            </form>
+
+            <div id="results">
+                <h3>Resultados Estimados</h3>
+                <div class="text-resultado">
+                    <p>
+                        <strong>Factura Mensual Actual:</strong>
+                        <span id="currentBill" class="currency">$0</span>
+                    </p>
+                    <p>
+                        <strong>Nuevo Consumo Estimado:</strong>
+                        <span id="newConsumption">0 kWh</span>
+                    </p>
+                    <p>
+                        <strong>Nueva Factura Estimada:</strong>
+                        <span id="newBill" class="currency">$0</span>
+                    </p>
+                    <p>
+                        <strong>Ahorro Mensual Total:</strong>
+                        <span id="monthlySavings" class="ahorro">$0</span>
+                    </p>
+                    <p>
+                        <strong>Ahorro Anual Proyectado:</strong>
+                        <span id="annualSavings" class="ahorro">$0</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 📌 Cargar tu archivo calculadora.js -->
+        <script src="calculadora.js"></script>
+
+        <br>
+
+        <h3>Información relacionada</h3>
+        <ul>
+            <li>Reducción de costos energéticos para comunidades vulnerables.</li>
+            <li>Generación de empleo en sectores técnicos y de mantenimiento.</li>
+            <li>Disminución de la dependencia de combustibles fósiles.</li>
+            <li>Impulso al desarrollo rural mediante electrificación sostenible.</li>
+            <li>Mejor calidad del aire y reducción de impactos ambientales.</li>
+        </ul>
+
+    </section>
+
+
+
+    <footer>
+        <p>Desarrollo web informativo sobre el potencial energético del Magdalena — 2025</p>
+    </footer>
+</body>
+
+</html>
